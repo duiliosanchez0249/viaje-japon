@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Japón en 15 días: 3 presupuestos</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="sun" aria-hidden="true"></div>
+        <div class="kanji" aria-hidden="true">日本旅</div>
+
+        <div class="hero-in">
+            <h1>Japón<br>en 15 días</h1>
+            <p>Tres presupuestos reales, desde mochilero hasta lujo total. Elige tu forma de viajar, mira las fotos y descubre en qué se va cada peso.</p>
+            <a class="btn" href="#planes">Ver los presupuestos</a>
+        </div>
+    </header>
+
+    <div class="facts">
+        <div><b>15 días</b><span>14 noches</span></div>
+        <div><b>3 niveles</b><span>bajo, medio y alto</span></div>
+        <div><b>1 al 15 nov</b><span>2026 · temporada de hojas rojas</span></div>
+        <div><b>¥1 ≈ $0.108</b><span>tipo de cambio de referencia</span></div>
+        <div><b>Por persona</b><span>en pesos mexicanos</span></div>
+    </div>
+
+    <section class="plans" id="planes">
+        <h2>Elige tu Japón</h2>
+        <p class="sub">Pasa el cursor para verlo en grande y haz clic para abrir la galería de fotos y el desglose completo.</p>
+
+        <div class="grid" id="grid"></div>
+
+        <p class="note">
+            Vuelos con tarifas reales de captura (American, United y Google Flights); lo demás son estimaciones por persona en pesos mexicanos; pueden cambiar según fecha, tipo de cambio y disponibilidad. Confirma tarifas de vuelos y hoteles antes de comprar.
+        </p>
+    </section>
+
+    <section class="plans extra">
+        <h2>Vuelos reales, 1 de noviembre</h2>
+        <p class="sub">Tarifas que encontraron tus compañeros saliendo de Guadalajara. Pasa el cursor sobre el boleto.</p>
+
+        <div class="tix">
+            <div class="ticket rv">
+                <div class="t-top">
+                    <span>American Airlines</span>
+                    <em>Ida · dom 1 nov</em>
+                </div>
+                <div class="t-mid"><b>GDL</b><i>✈</i><b>HND</b></div>
+                <div class="t-sub">06:00 → 18:25 (+1) · 1 escala · 21 h 25 m</div>
+                <div class="t-price">$16,053 <small>MXN solo ida</small></div>
+            </div>
+
+            <div class="ticket rv">
+                <div class="t-top">
+                    <span>United Airlines</span>
+                    <em>Ida · dom 1 nov</em>
+                </div>
+                <div class="t-mid"><b>GDL</b><i>✈</i><b>NRT</b></div>
+                <div class="t-sub">05:45 → 15:30 (+1) · 1 escala · 18 h 45 m</div>
+                <div class="t-price">La más rápida <small>precio según fecha</small></div>
+            </div>
+
+            <div class="ticket rv">
+                <div class="t-top">
+                    <span>Google Vuelos</span>
+                    <em>Ida y vuelta desde</em>
+                </div>
+                <div class="t-mid"><b>GDL</b><i>✈</i><b>JP</b></div>
+                <div class="t-sub">Osaka $28,111 · Fukuoka $29,898 · Tokio $30,833</div>
+                <div class="t-price">Osaka, la más barata <small>MXN</small></div>
+            </div>
+        </div>
+
+        <h2 class="extra-title">¿Y si lo compras en agencia?</h2>
+        <p class="sub">Referencia de paquetes en grupo con guía en español, hoteles 4★ y habitación doble. No incluyen vuelos internacionales (Mundo Asia Tours).</p>
+
+        <div class="tix">
+            <div class="ticket ag rv">
+                <div class="t-top">
+                    <span>Japón · 13 días</span>
+                    <em>Tokio, Kioto, Kanazawa, Osaka</em>
+                </div>
+                <div class="t-price">USD 4,532 <small>desde</small></div>
+            </div>
+
+            <div class="ticket ag rv">
+                <div class="t-top">
+                    <span>Corea + Japón · 15 días</span>
+                    <em>Seúl, Busan, Tokio, Kioto</em>
+                </div>
+                <div class="t-price">USD 5,994 <small>desde</small></div>
+            </div>
+
+            <div class="ticket ag rv">
+                <div class="t-top">
+                    <span>Japón, China y HK · 15 días</span>
+                    <em>Tokio, Kioto, Pekín, Shanghái</em>
+                </div>
+                <div class="t-price">USD 5,446 <small>desde</small></div>
+            </div>
+        </div>
+
+        <p class="note">Por eso estos presupuestos por tu cuenta salen más baratos y con más libertad.</p>
+
+        <h2 class="extra-title">Antes de viajar</h2>
+
+        <div class="chips">
+            <span class="rv">Mexicanos: sin visa hasta 90 días</span>
+            <span class="rv">Visit Japan Web, recomendado</span>
+            <span class="rv">No se deja propina</span>
+            <span class="rv">Enchufe tipo A</span>
+            <span class="rv">Tarjeta IC: ¥500–1,500 al día</span>
+            <span class="rv">Shinkansen Tokio–Kioto: ¥13,000–14,500</span>
+            <span class="rv">JR Pass 14 días: ¥80,000 (≈ $8,640)</span>
+            <span class="rv">Noviembre: hojas rojas (momiji)</span>
+        </div>
+    </section>
+
+    <footer>良い旅を · Buen viaje</footer>
+
+    <dialog id="dlg"></dialog>
+
+</body>
+</html>

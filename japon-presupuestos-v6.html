@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Japón en 15 días | Propuesta familiar</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ---------- Colores y fuentes generales ---------- */
+:root {
+  --indigo: #1C2B4B;
+  --indigo-oscuro: #142039;
+  --sakura: #F4C2CF;
+  --rojo: #D8452E;
+  --blanco: #F6F7FA;
+  --titulos: 'Shippori Mincho', 'Yu Mincho', serif;
+  --texto: 'Zen Kaku Gothic New', 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--indigo-oscuro); color: var(--blanco); font-family: var(--texto); line-height: 1.6; overflow-x: hidden; }
+button { font: inherit; color: inherit; border: 0; background: none; cursor: pointer; }
+h2 { font-family: var(--titulos); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; text-align: center; margin-bottom: 3rem; }
+.sub { text-align: center; max-width: 60ch; margin: 1rem auto 3rem; opacity: .8; }
+section { padding: 5rem 1.5rem; max-width: 1320px; margin: auto; }
+
+/* ---------- Paletas por presupuesto ---------- */
+/* Bajo: bambú / matcha */
+.bajo  { --acento: #2F6B4F; --brillo: #B7DC9E; --fondo: #F1F7EA; --oscuro: #17382B; --letra: #17382B; }
+/* Medio: cerezos / sakura (terracota y salmón) */
+.medio { --acento: #C8643B; --brillo: #F6B7A3; --fondo: #FFF3EE; --oscuro: #5A2A22; --letra: #4A241D; }
+/* Alto: lujo imperial / noche de Tokio */
+.alto  { --acento: #C9A24B; --brillo: #E6C879; --fondo: #0F1A38; --oscuro: #0B1226; --letra: #F3E9D0; }
+
+/* ---------- Menú ---------- */
+nav { position: sticky; top: 0; z-index: 20; display: flex; justify-content: space-between; align-items: center; padding: .8rem 2rem; background: rgba(20, 32, 57, .85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,.1); }
+nav b { font-family: var(--titulos); font-size: 1.3rem; color: var(--sakura); }
+nav a { color: var(--blanco); text-decoration: none; margin-left: 1.5rem; font-size: .95rem; transition: color .3s; }
+nav a:hover { color: var(--sakura); }
+
+/* ---------- Inicio con el sol ---------- */
+.hero { position: relative; min-height: 88vh; display: grid; place-items: center; text-align: center; padding: 4rem 1.5rem; overflow: hidden; background: radial-gradient(circle at 50% 120%, #2c4170, var(--indigo) 45%, var(--indigo-oscuro)); }
+.sol { position: absolute; width: min(70vw, 560px); aspect-ratio: 1; border-radius: 50%; background: var(--rojo); top: 50%; left: 50%; transform: translate(-50%, -52%); box-shadow: 0 0 120px 20px rgba(216,69,46,.35); animation: salir 1.6s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes salir { from { transform: translate(-50%, 40%); opacity: 0; } }
+.kanji { position: absolute; right: 6%; top: 8%; writing-mode: vertical-rl; font-family: var(--titulos); font-weight: 800; font-size: clamp(3rem, 9vw, 7rem); color: var(--sakura); letter-spacing: .15em; }
+.hero-texto { position: relative; z-index: 2; max-width: 820px; }
+.hero h1 { font-family: var(--titulos); font-weight: 800; font-size: clamp(3rem, 10vw, 7.5rem); line-height: .95; color: #fff; text-shadow: 0 4px 30px rgba(20,32,57,.55); }
+.hero p { margin: 1.5rem auto 2rem; max-width: 52ch; font-size: 1.15rem; color: #fff; text-shadow: 0 2px 14px rgba(20,32,57,.8); }
+.boton { display: inline-block; padding: .95rem 2.2rem; border-radius: 99px; background: var(--sakura); color: var(--indigo); font-weight: 700; text-decoration: none; transition: transform .25s, box-shadow .25s; }
+.boton:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 12px 30px rgba(244,194,207,.35); }
+/* motivo japonés sutil (olas seigaiha) en la base del inicio */
+.olas, .card::before { background-image:
+  radial-gradient(circle at 100% 150%, transparent 24%, var(--linea) 25%, var(--linea) 28%, transparent 29%, transparent 36%, var(--linea) 37%, var(--linea) 40%, transparent 41%),
+  radial-gradient(circle at 0 150%, transparent 24%, var(--linea) 25%, var(--linea) 28%, transparent 29%, transparent 36%, var(--linea) 37%, var(--linea) 40%, transparent 41%),
+  radial-gradient(circle at 50% 100%, transparent 10%, var(--linea) 11%, var(--linea) 14%, transparent 15%, transparent 22%, var(--linea) 23%, var(--linea) 26%, transparent 27%);
+  background-size: 60px 30px; }
+.olas { --linea: rgba(244,194,207,.22); position: absolute; left: 0; right: 0; bottom: 0; height: 130px; z-index: 1; }
+.petalo { position: absolute; top: -20px; width: 12px; height: 12px; border-radius: 0 80% 0 80%; background: var(--sakura); opacity: .8; z-index: 1; animation: caer linear infinite; }
+@keyframes caer { to { transform: translate(90px, 100vh) rotate(720deg); } }
+
+/* ---------- Datos rápidos ---------- */
+.datos { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 3rem; padding: 2rem 1.5rem; background: var(--indigo); border-block: 1px solid rgba(255,255,255,.1); }
+.datos div { text-align: center; }
+.datos b { display: block; font-family: var(--titulos); font-size: 1.6rem; color: var(--sakura); }
+.datos span { font-size: .9rem; opacity: .8; }
+
+/* ---------- Tabla comparativa ---------- */
+.tabla-scroll { overflow-x: auto; border-radius: 20px; box-shadow: 0 14px 40px rgba(0,0,0,.35); }
+.comparativo { width: 100%; min-width: 760px; border-collapse: collapse; background: var(--blanco); color: var(--indigo); }
+.comparativo th, .comparativo td { padding: 1rem 1.2rem; text-align: left; vertical-align: top; font-size: .95rem; }
+.comparativo thead th { font-family: var(--titulos); font-size: 1.15rem; background: var(--acento); color: #fff; }
+.comparativo thead th.alto { color: #0F1A38; }
+.comparativo tbody th { color: var(--indigo); width: 16%; }
+.comparativo tbody tr:nth-child(even) { background: #E8ECF3; }
+.comparativo tbody tr { transition: background .3s; }
+.comparativo tbody tr:hover { background: var(--sakura); }
+
+/* ---------- Tarjetas de presupuesto ---------- */
+.rejilla { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
+.card { --linea: rgba(255,255,255,.12); position: relative; height: 640px; border-radius: 26px; overflow: hidden; cursor: pointer; isolation: isolate; box-shadow: 0 10px 30px rgba(0,0,0,.35); transition: transform .5s cubic-bezier(.2,.9,.3,1.2), box-shadow .5s, opacity .35s, filter .35s; }
+.card .foto { position: absolute; inset: 0; z-index: -3; background: linear-gradient(160deg, var(--acento), var(--oscuro)); transition: transform .9s cubic-bezier(.2,.8,.2,1); }
+.card .foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,0) 15%, var(--oscuro) 85%); }
+.card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 110px; z-index: 0; }
+.rejilla:hover .card { opacity: .55; filter: saturate(.5); transform: scale(.96); }
+.rejilla .card:hover { opacity: 1; filter: none; transform: scale(1.07) translateY(-10px); z-index: 5; box-shadow: 0 40px 90px rgba(0,0,0,.6), 0 0 0 3px var(--brillo); }
+.card:hover .foto { transform: scale(1.15); }
+.card .info { position: absolute; left: 0; right: 0; bottom: 0; padding: 2rem 1.8rem; color: #fff; }
+.etiqueta { display: inline-block; padding: .25rem .9rem; border-radius: 99px; background: var(--brillo); color: var(--oscuro); font-weight: 700; font-size: .85rem; }
+.card h3 { font-family: var(--titulos); font-size: 2rem; font-weight: 800; line-height: 1.1; margin: .8rem 0 .3rem; }
+.card .ruta { font-size: .92rem; opacity: .85; }
+.precio { font-family: var(--titulos); font-weight: 800; font-size: 3rem; line-height: 1; margin: 1rem 0 .1rem; color: var(--brillo); }
+.precio small { font-family: var(--texto); font-size: .95rem; font-weight: 500; color: #fff; opacity: .8; }
+.por-persona { font-size: .9rem; opacity: .8; }
+.ver-mas { display: inline-block; margin-top: 1rem; padding: .6rem 1.3rem; border: 2px solid var(--brillo); border-radius: 99px; font-weight: 700; transition: background .3s, color .3s; }
+.card:hover .ver-mas { background: var(--brillo); color: var(--oscuro); }
+
+/* ---------- Filosofía ---------- */
+.filosofia { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+.filosofia div { padding: 2rem; border-radius: 20px; background: var(--fondo); color: var(--letra); border-top: 6px solid var(--acento); transition: transform .35s, box-shadow .35s; }
+.filosofia div:hover { transform: translateY(-8px); box-shadow: 0 24px 50px rgba(0,0,0,.4); }
+.filosofia h3 { font-family: var(--titulos); font-size: 1.5rem; color: var(--acento); }
+.filosofia small { display: block; margin-bottom: .6rem; opacity: .7; }
+
+footer { text-align: center; padding: 3rem 1.5rem; background: var(--indigo); font-size: .9rem; }
+footer b { display: block; font-family: var(--titulos); font-size: 1.4rem; color: var(--sakura); margin-bottom: .5rem; }
+
+/* ---------- Ventana con galería y detalle ---------- */
+dialog { width: min(1200px, 96vw); max-height: 94vh; margin: auto; border: 0; border-radius: 26px; overflow: auto; background: var(--fondo); color: var(--letra); box-shadow: 0 50px 120px rgba(0,0,0,.7); }
+dialog[open] { animation: aparecer .45s cubic-bezier(.2,.9,.3,1.2); }
+dialog::backdrop { background: rgba(10,16,32,.8); backdrop-filter: blur(8px); }
+@keyframes aparecer { from { transform: scale(.85) translateY(30px); opacity: 0; } }
+.cerrar { position: sticky; top: .8rem; float: right; margin: .8rem .8rem 0 0; z-index: 10; width: 44px; height: 44px; border-radius: 50%; background: var(--acento); color: #fff; font-size: 1.4rem; font-weight: 700; transition: transform .3s; }
+.alto .cerrar { color: #0F1A38; }
+.cerrar:hover { transform: rotate(90deg) scale(1.1); }
+.modal-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 2rem; padding: 1.5rem 2rem 2.2rem; }
+.escenario { position: relative; aspect-ratio: 4/3; border-radius: 20px; overflow: hidden; background: linear-gradient(160deg, var(--acento), var(--oscuro)); }
+.escenario img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: entrar .6s; }
+@keyframes entrar { from { opacity: 0; transform: scale(1.06); } }
+.pie-foto { position: absolute; left: 0; right: 0; bottom: 0; padding: 2.5rem 1.2rem 1rem; background: linear-gradient(transparent, rgba(0,0,0,.8)); font-family: var(--titulos); font-weight: 700; font-size: 1.1rem; color: #fff; }
+.flecha { position: absolute; top: 50%; transform: translateY(-50%); width: 46px; height: 46px; border-radius: 50%; background: rgba(0,0,0,.55); color: #fff; font-size: 1.3rem; z-index: 3; transition: background .3s, transform .3s; }
+.flecha:hover { background: var(--acento); transform: translateY(-50%) scale(1.15); }
+.anterior { left: .8rem; } .siguiente { right: .8rem; }
+.miniaturas { display: grid; grid-template-columns: repeat(6, 1fr); gap: .5rem; margin-top: .7rem; }
+.miniaturas button { aspect-ratio: 1; border-radius: 12px; overflow: hidden; opacity: .5; background: var(--acento); transition: opacity .3s, transform .3s; }
+.miniaturas img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.miniaturas button:hover { opacity: 1; transform: translateY(-4px); }
+.miniaturas button.activa { opacity: 1; box-shadow: 0 0 0 3px var(--acento); }
+.detalle h2 { text-align: left; font-size: 2.1rem; line-height: 1.1; margin: .6rem 0 .5rem; }
+.detalle .justif { font-size: .95rem; opacity: .85; margin-bottom: 1rem; }
+.detalle .precio { color: var(--acento); margin: .5rem 0 0; }
+.detalle .precio small { color: var(--letra); }
+.detalle .etiqueta { background: var(--acento); color: #fff; }
+.alto .etiqueta { color: #0F1A38; }
+.pestanas { display: flex; gap: .5rem; margin: 1.4rem 0 1rem; }
+.pestanas button { padding: .5rem 1.3rem; border-radius: 99px; background: rgba(128,128,128,.18); font-weight: 500; transition: transform .25s; }
+.pestanas button:hover { transform: translateY(-2px); }
+.pestanas button.activa { background: var(--acento); color: #fff; font-weight: 700; }
+.alto .pestanas button.activa { color: #0F1A38; }
+h4 { font-family: var(--titulos); font-size: 1.15rem; color: var(--acento); margin: 1.2rem 0 .5rem; }
+.tabla { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.tabla th { text-align: left; padding: .5rem .6rem; background: var(--acento); color: #fff; font-weight: 700; }
+.alto .tabla th { color: #0F1A38; }
+.tabla td { padding: .5rem .6rem; border-bottom: 1px solid rgba(128,128,128,.3); }
+.tabla .num { text-align: right; white-space: nowrap; }
+.tabla .total td { font-weight: 700; color: var(--acento); border-bottom: 0; }
+.dia { display: grid; grid-template-columns: 52px 1fr; gap: .8rem; padding: .55rem 0; border-bottom: 1px solid rgba(128,128,128,.25); }
+.dia i { font-style: normal; font-family: var(--titulos); font-weight: 800; font-size: 1.5rem; color: var(--acento); }
+.dia b { display: block; font-size: .95rem; }
+.dia span { font-size: .88rem; opacity: .85; }
+.lista-dias { max-height: 420px; overflow-y: auto; padding-right: .5rem; }
+
+/* ---------- Boleto de avión ---------- */
+.boleto { background: var(--oscuro); color: #fff; border-radius: 18px; padding: 1.5rem; border-left: 8px solid var(--brillo); }
+.boleto-arriba { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.3rem; }
+.boleto-arriba b { font-family: var(--titulos); font-size: 1.3rem; color: var(--brillo); }
+.boleto-arriba span { font-size: .85rem; opacity: .8; }
+.boleto-ruta { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; text-align: center; }
+.boleto-ruta strong { display: block; font-family: var(--titulos); font-size: 2rem; line-height: 1; }
+.boleto-ruta sup { font-size: .9rem; color: var(--brillo); }
+.boleto-ruta span { opacity: .8; }
+.boleto-medio small { display: block; font-size: .8rem; opacity: .85; }
+.boleto-medio hr { border: 0; border-top: 2px dashed var(--brillo); margin: .4rem 0; }
+.boleto-precio { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.3rem; padding-top: 1rem; border-top: 2px dashed rgba(255,255,255,.3); }
+.boleto-precio small { display: block; font-size: .8rem; opacity: .75; }
+.boleto-precio b { font-family: var(--titulos); font-size: 1.7rem; color: var(--brillo); }
+
+/* ---------- Consejos y agencias ---------- */
+.tips { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+.tip { padding: 1.6rem 1.4rem; border-radius: 20px; background: rgba(244,194,207,.08); border: 1px solid rgba(244,194,207,.3); transition: transform .35s, background .35s, color .35s; }
+.tip:hover { transform: translateY(-8px); background: var(--sakura); color: var(--indigo); }
+.tip span { font-size: 2rem; }
+.tip b { display: block; font-family: var(--titulos); font-size: 1.2rem; margin: .5rem 0 .2rem; }
+.tip p { font-size: .92rem; opacity: .85; }
+.agencias { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; max-width: 1000px; margin: auto; }
+.agencia { padding: 1.6rem; border-radius: 20px; background: var(--blanco); color: var(--indigo); transition: transform .35s, box-shadow .35s; }
+.agencia:hover { transform: translateY(-8px); box-shadow: 0 24px 50px rgba(0,0,0,.4); }
+.agencia b { font-family: var(--titulos); font-size: 1.2rem; }
+.agencia p { font-size: .9rem; opacity: .75; }
+.agencia strong { display: block; font-family: var(--titulos); font-size: 1.8rem; color: var(--rojo); margin-top: .6rem; }
+.nota { text-align: center; font-size: .85rem; opacity: .65; margin-top: 1.5rem; }
+
+@media (max-width: 1020px) {
+  .tips { grid-template-columns: repeat(2, 1fr); }
+  .agencias { grid-template-columns: 1fr; max-width: 480px; }
+  .rejilla, .filosofia { grid-template-columns: 1fr; max-width: 520px; margin: auto; }
+  .card { height: 540px; }
+  .modal-grid { grid-template-columns: 1fr; padding: 1rem; }
+  nav a { margin-left: .8rem; font-size: .85rem; }
+}
+.boleto { margin-bottom: .8rem; }
+.total-vuelo { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 1.3rem; border-radius: 16px; background: rgba(128,128,128,.15); }
+.total-vuelo small { display: block; font-size: .8rem; opacity: .75; }
+.total-vuelo b { font-family: var(--titulos); font-size: 1.6rem; color: var(--acento); }
+</style>
+</head>
+
+<body>
+
+<nav>
+  <b>日本旅</b>
+  <div><a href="#comparativo">Comparativo</a><a href="#presupuestos">Presupuestos</a><a href="#filosofia">Filosofía</a><a href="#consejos">Consejos</a></div>
+</nav>
+
+<header class="hero">
+  <div class="sol"></div>
+  <div class="kanji">日本旅</div>
+  <div class="hero-texto">
+    <h1>Japón<br>en 15 días</h1>
+    <p>Tres presupuestos para nuestra familia: dos adultos y dos hijas. Elige la forma de vivir el viaje.</p>
+    <a class="boton" href="#presupuestos">Ver los presupuestos</a>
+  </div>
+  <div class="olas"></div>
+</header>
+
+<div class="datos">
+  <div><b>15 días</b><span>14 noches</span></div>
+  <div><b>4 personas</b><span>2 adultos y 2 hijas</span></div>
+  <div><b>Tokio → Hakone → Osaka → Kioto</b><span>la ruta del viaje</span></div>
+  <div><b>MXN</b><span>todo en pesos mexicanos</span></div>
+</div>
+
+<section id="comparativo">
+  <h2>Comparativo ejecutivo</h2>
+  <div class="tabla-scroll"><table class="comparativo" id="tabla-comparativa"></table></div>
+</section>
+
+<section id="presupuestos">
+  <h2>Elige nuestro Japón</h2>
+  <div class="rejilla" id="rejilla"></div>
+</section>
+
+<section id="filosofia">
+  <h2>Filosofía de selección</h2>
+  <div class="filosofia" id="filosofia"></div>
+</section>
+
+<section id="consejos">
+  <h2>Antes de viajar</h2>
+  <div class="tips" id="tips"></div>
+</section>
+
+<section id="agencias">
+  <h2>¿Y si lo compramos en agencia?</h2>
+  <div class="agencias">
+    <div class="agencia"><b>Japón · 13 días</b><p>Tokio, Kioto, Kanazawa y Osaka</p><strong>USD 4,532</strong></div>
+    <div class="agencia"><b>Corea + Japón · 15 días</b><p>Seúl, Busan, Tokio y Kioto</p><strong>USD 5,994</strong></div>
+    <div class="agencia"><b>Japón, China y HK · 15 días</b><p>Tokio, Kioto, Pekín y Shanghái</p><strong>USD 5,446</strong></div>
+  </div>
+  <p class="nota">Paquetes en grupo con guía en español, desde. No incluyen vuelos internacionales (Mundo Asia Tours).</p>
+</section>
+
+<footer>
+  <b>良い旅を · Buen viaje</b>
+  Confirmar disponibilidad y temporada antes de reservar. Las tarifas de vuelos y experiencias están sujetas al tipo de cambio JPY/MXN.
+</footer>
+
+<dialog id="ventana"></dialog>
+
+<script>
+// ---------------------------------------------------------
+// DATOS: aquí está toda la información de los 3 presupuestos
+// (base: el PDF de referencia, para una familia de 4 personas)
+// ---------------------------------------------------------
+var PERSONAS = 4;
+
+// función para las fotos (cambia las palabras o pon tus rutas, ej: 'img/fuji.jpg')
+function foto(palabras) {
+  if (palabras.indexOf('/') != -1) return palabras;
+  return 'https://loremflickr.com/1600/1000/' + palabras;
+}
+
+var planes = [
+  {
+    clase: 'bajo', etiqueta: 'Presupuesto bajo', nombre: 'Eficiencia y optimización',
+    ruta: 'Airbnb, autobús nocturno y miradores gratis',
+    justificacion: 'Maximiza el capital con movilidad inteligente, hospedajes funcionales y ahorros como el autobús nocturno Fuji–Osaka, que elimina una noche de hotel y un traslado.',
+    filosofia: ['Eficiencia', 'Protege el capital recortando costos fijos y priorizando accesos públicos de alto valor cultural.'],
+    comparativo: ['Aeroméxico, 2 escalas (NLU, MTY). El más económico.', 'Airbnb / hoteles de negocios céntricos.', 'Autobús nocturno Fuji–Osaka (ahorra una noche de hotel).', 'Espacios públicos, miradores gratis y comida local.'],
+    fotos: [['tokyo,shibuya', 'Cruce de Shibuya, Tokio'], ['fuji,kawaguchiko', 'Lago Kawaguchiko y el Monte Fuji'], ['osaka,dotonbori', 'Dotonbori, Osaka'], ['nara,deer', 'Parque de los ciervos, Nara'], ['kyoto,fushimiinari', 'Fushimi Inari, Kioto'], ['kyoto,bamboo', 'Bosque de bambú, Arashiyama']],
+    antes: [
+      ['Vuelos (redondo, 4 personas)', 'Aeroméxico · 2 escalas (NLU, MTY) · $33,737 por persona', 134945],
+      ['Hospedaje (14 noches)', 'Airbnb u hoteles de negocios; la noche 8 se pasa en tránsito', 65000],
+      ['Transporte nacional', 'Autobús nocturno Fuji–Osaka y pases locales', 8000],
+      ['Seguros y entradas', 'Póliza médica amplia y tickets básicos', 12000]
+    ],
+    durante: [
+      ['Tokio (días 1–5)', 17800, 5500, 1500],
+      ['Fuji / tránsito (días 6–8)', 11500, 4000, 2000],
+      ['Osaka (días 9–11)', 15000, 3200, 2000],
+      ['Nara / Kioto (días 12–15)', 18000, 5400, 3900]
+    ],
+    dias: [
+      ['Aterrizaje en Tokio', 'Llegada a Narita/Haneda, check-in en Airbnb (Ueno) y despensa para desayunos.'],
+      ['Contraste cultural', 'Templo Sensō-ji por la mañana (acceso libre) y tarde en Akihabara.'],
+      ['Moda y redes', 'Harajuku, Takeshita Street, cruce de Shibuya y mirador gratis del edificio Magnet.'],
+      ['Panorámicas', 'Mirador gratuito del Gobierno Metropolitano de Tokio, piso 45.'],
+      ['Parques y traslado', 'Picnic en el Parque Yoyogi y autobús por la tarde hacia Fuji.'],
+      ['Kawaguchiko', 'Renta de 4 bicicletas (~$400 en total) para recorrer los miradores del lago.'],
+      ['Cultura termal', 'Pagoda Chureito (400 escalones) y onsen público económico.'],
+      ['Tránsito estratégico', 'Autobús nocturno a Osaka a las 10 PM: ahorra transporte y una noche de hotel.'],
+      ['Neón y gastronomía', 'Dotonbori; cena de takoyaki y okonomiyaki (menos de $600 para la familia).'],
+      ['Barrio retro', 'Shinsekai y comida económica tipo kushikatsu.'],
+      ['Castillo y mercado', 'Jardines del Castillo de Osaka y degustaciones en el Mercado Kuromon.'],
+      ['Excursión a Nara', 'Tren local, parque de los ciervos y galletas para alimentarlos (~$25).'],
+      ['Montaña roja', 'Senderismo en Fushimi Inari y tarde libre en Gion.'],
+      ['Compras inteligentes', 'Bosque de bambú de Arashiyama y recuerdos en Daiso y Don Quijote. Por la tarde, tren a Tokio.'],
+      ['Retorno a Guadalajara', 'Traslado a Narita (NRT) y vuelo de regreso a Guadalajara a las 9:35.']
+    ]
+  },
+  {
+    clase: 'medio', etiqueta: 'Presupuesto medio', nombre: 'Confort y equilibrio',
+    ruta: 'Shinkansen, ryokan con cena kaiseki y Universal Studios',
+    justificacion: 'Equilibrio entre presupuesto y comodidad: reduce tiempos de traslado con el Shinkansen e incluye experiencias icónicas como una noche de ryokan con cena kaiseki y un parque de atracciones.',
+    filosofia: ['Equilibrio', 'Paga por optimizar tiempo y ganar confort en traslados y actividades, sin caer en lujos desmedidos.'],
+    comparativo: ['Aeroméxico, 2 escalas (MEX, MTY). Balance tiempo/precio.', 'Hoteles 3.5–4★ + 1 noche en ryokan tradicional.', 'Shinkansen (tren bala) y pases regionales.', 'TeamLab Planets, Universal Studios y Shibuya Sky.'],
+    fotos: [['teamlab,tokyo', 'TeamLab Planets, Tokio'], ['hakone,ryokan', 'Ryokan tradicional en Hakone'], ['shinkansen,train', 'Viaje en Shinkansen'], ['osaka,castle', 'Castillo de Osaka'], ['kyoto,teaceremony', 'Ceremonia del té en Kioto'], ['tokyo,senso-ji', 'Sensō-ji, Asakusa']],
+    antes: [
+      ['Vuelos (redondo, 4 personas)', 'Aeroméxico · 2 escalas (MEX, MTY) · $64,415 por persona', 257658],
+      ['Hospedaje (14 noches)', 'Hoteles 3.5–4★ en Shinjuku y Kioto + 1 noche de ryokan', 115000],
+      ['Transporte nacional', 'Shinkansen Tokio–Kansai y pases regionales', 28000],
+      ['Seguros y entradas', 'Póliza médica premium, USJ Express y TeamLab', 25000]
+    ],
+    durante: [
+      ['Tokio (días 1–5)', 25000, 8000, 8500],
+      ['Fuji / Hakone (días 6–8)', 15000, 6000, 5000],
+      ['Osaka (días 9–11)', 22000, 5500, 6000],
+      ['Nara / Kioto (días 12–15)', 18500, 6000, 2000]
+    ],
+    dias: [
+      ['Aterrizaje cómodo', 'Narita Express, check-in en hotel 4★ en Shinjuku y cena de bienvenida.'],
+      ['Inmersión digital', 'TeamLab Planets por la mañana; tarde en Odaiba y Akihabara.'],
+      ['Moda y vistas', 'Omotesando y Harajuku; al atardecer, Shibuya Sky con acceso reservado.'],
+      ['Tradición y sushi', 'Visita guiada a Sensō-ji en Asakusa y sushi de alta calidad en Tsukiji.'],
+      ['Día libre', 'Cafés temáticos (Pokémon/Kirby) o Ginza; envío del equipaje a Kioto por Ta-Q-Bin.'],
+      ['Romancecar y Hakone', 'Tren expreso, crucero por el Lago Ashi y teleférico panorámico.'],
+      ['Noche de ryokan', 'Ryokan tradicional, cena kaiseki de varios tiempos y onsen privado familiar.'],
+      ['Alta velocidad', 'Shinkansen directo a Osaka (~2.5 horas).'],
+      ['Neón y wagyu', 'Hotel céntrico, Dotonbori y cena en restaurante de carne wagyu/Kobe.'],
+      ['Universal Studios', 'Día completo con Express Pass: Super Nintendo World y Harry Potter.'],
+      ['Castillo y Umeda', 'Interior del Castillo de Osaka y compras en el complejo de Umeda.'],
+      ['Nara exprés', 'Tren exprés, templo Tōdai-ji, parque de los ciervos y taxis para optimizar tiempo.'],
+      ['Montaña y té', 'Fushimi Inari por la mañana y ceremonia del té privada por la tarde.'],
+      ['Arashiyama y souvenirs', 'Bosque de bambú y compras de artesanías y matcha en Gion. Por la tarde, Shinkansen a Tokio.'],
+      ['Retorno a Guadalajara', 'Traslado a Narita (NRT) y vuelo de regreso a las 9:35.']
+    ]
+  },
+  {
+    clase: 'alto', etiqueta: 'Presupuesto alto', nombre: 'Exclusividad y servicio VIP',
+    ruta: 'Aman Tokyo, Gora Kadan, helicóptero y cenas Michelin',
+    justificacion: 'Ultra lujo que elimina toda fricción: traslados privados puerta a puerta, hotelería de categoría mundial (Aman, Peninsula, Ritz-Carlton), accesos exclusivos y guías privados permanentes.',
+    filosofia: ['Exclusividad', 'Invierte en privacidad absoluta, servicios puerta a puerta y acceso VIP fuera de horarios habituales.'],
+    comparativo: ['Japan Airlines, 1 escala (DFW). El más corto: 17 h 44 min.', 'Suites 5★ (Aman / Peninsula) + ryokan élite (Gora Kadan).', 'Shinkansen Gran Class + chófer privado en Black Van.', 'Tours privados, helicóptero, USJ VIP y cenas Michelin.'],
+    fotos: [['tokyo,ginza,night', 'Ginza de noche'], ['ryokan,rotenburo', 'Rotenburo privado en Gora Kadan'], ['kobe,beef,wagyu', 'Kobe Beef A5'], ['mountfuji,japan', 'Monte Fuji'], ['kyoto,gion,night', 'Gion, Kioto'], ['japan,zen,temple', 'Meditación zen en Kioto']],
+    antes: [
+      ['Vuelos (redondo, 4 personas)', 'Japan Airlines · 1 escala (DFW) · $96,079 por persona', 384316],
+      ['Hospedaje (14 noches)', 'Suites 5★ (Aman Tokyo) + ryokan premium (Gora Kadan)', 350000],
+      ['Transporte nacional', 'Shinkansen Gran Class y chófer privado en Black Van', 85000],
+      ['Experiencias VIP', 'Guías privados, tour VIP en USJ y vuelos en helicóptero', 120000]
+    ],
+    durante: [
+      ['Tokio (días 1–5)', 60000, 15000, 40000],
+      ['Fuji / Hakone (días 6–8)', 35000, 12000, 15000],
+      ['Osaka (días 9–11)', 45000, 10000, 20000],
+      ['Nara / Kioto (días 12–15)', 38000, 10000, 5000]
+    ],
+    dias: [
+      ['Arribo VIP', 'Recepción en pista en Haneda, traslado en Black Van y suite en Aman Tokyo o The Peninsula.'],
+      ['Anime y helicóptero', 'Guía privado en Akihabara y sobrevuelo privado de Tokio al atardecer.'],
+      ['Ginza y Michelin', 'Personal shopper en Ginza y cena omakase en restaurante galardonado.'],
+      ['Arte privado', 'Acceso a puerta cerrada a museos digitales y tarde completa de spa 5★.'],
+      ['Logística invisible', 'Envío VIP del equipaje a Kioto y traslado privado en vehículo de lujo a Hakone.'],
+      ['Yate privado', 'Paseo exclusivo en yate por las aguas del Lago Ashi.'],
+      ['Gora Kadan élite', 'Habitación con rotenburo privado (onsen) y cena kaiseki servida en suite.'],
+      ['Shinkansen Gran Class', 'Traslado a Osaka en máxima categoría, con atención personalizada.'],
+      ['Kobe Beef A5', 'Check-in en The Ritz-Carlton Osaka y cena teppanyaki privada.'],
+      ['USJ VIP Experience', 'Tour VIP privado con guía dedicado, accesos VIP y salas lounge.'],
+      ['Osaka privado', 'Recorrido a la medida con chófer, evitando las zonas concurridas.'],
+      ['Nara histórico', 'Traslado privado con historiador y hospedaje en Four Seasons o Ritz-Carlton Kioto.'],
+      ['Velada geisha', 'Templos antes del horario público y cena privada en un ochaya de Gion con geishas.'],
+      ['Zen y arte', 'Meditación privada con monje zen y tiempo exclusivo para arte o kimonos. Por la noche, traslado privado a Tokio.'],
+      ['Retorno VIP', 'Traslado a la terminal VIP de Narita (NRT) y vuelo de regreso a Guadalajara.']
+    ]
+  }
+];
+
+// ---------------------------------------------------------
+// FUNCIONES
+// ---------------------------------------------------------
+
+// da formato de dinero: 125000 -> $125,000
+function dinero(n) {
+  return '$' + Math.round(n).toLocaleString('es-MX');
+}
+
+// vuelos reales de cada presupuesto (ida y vuelta, precio por persona y total de la familia)
+planes[0].vuelo = { aerolinea: 'Aeroméxico', operado: 'Operado por Aeroliteral (Aeroméxico Connect)', origen: 'GDL', salida: '19:28', destino: 'NRT', llegada: '6:30', mas: '+2', duracion: '20 h 02 min', escalas: '2 escalas · NLU, MTY', porPersona: 33737, total: 134945,
+  regreso: { aerolinea: 'Aeroméxico', operado: '', origen: 'NRT', salida: '9:35', destino: 'GDL', llegada: '16:44', mas: '', duracion: '22 h 09 min', escalas: '1 escala · MEX' } };
+planes[1].vuelo = { aerolinea: 'Aeroméxico', operado: '', origen: 'GDL', salida: '19:10', destino: 'NRT', llegada: '6:30', mas: '+2', duracion: '20 h 20 min', escalas: '2 escalas · MEX, MTY', porPersona: 64415, total: 257658,
+  regreso: { aerolinea: 'Aeroméxico', operado: '', origen: 'NRT', salida: '9:35', destino: 'GDL', llegada: '11:55', mas: '', duracion: '17 h 20 min', escalas: '1 escala · MEX' } };
+planes[2].vuelo = { aerolinea: 'Japan Airlines', operado: 'Operado por American Airlines', origen: 'GDL', salida: '5:36', destino: 'HND', llegada: '14:20', mas: '+1', duracion: '17 h 44 min', escalas: '1 escala · DFW', porPersona: 96079, total: 384316,
+  regreso: { aerolinea: 'Aeroméxico', operado: '', origen: 'NRT', salida: '9:35', destino: 'GDL', llegada: '10:33', mas: '', duracion: '15 h 58 min', escalas: '1 escala · MEX' } };
+
+// calcula los totales de cada plan (así siempre cuadran las sumas)
+for (var i = 0; i < planes.length; i++) {
+  var p = planes[i];
+  p.totalAntes = 0;
+  for (var j = 0; j < p.antes.length; j++) p.totalAntes += p.antes[j][2];
+  p.totalDurante = 0;
+  for (var k = 0; k < p.durante.length; k++) {
+    var f = p.durante[k];
+    p.totalDurante += f[1] + f[2] + f[3];
+  }
+  p.total = p.totalAntes + p.totalDurante;
+}
+
+// ruta de cada foto: primero busca tu archivo en la carpeta img (ej: img/bajo-1.jpg)
+// y si no existe usa una foto de internet como respaldo
+function srcFoto(p, n) {
+  return 'src="img/' + p.clase + '-' + (n + 1) + '.jpg" data-respaldo="' + foto(p.fotos[n][0]) + '"';
+}
+
+// foto que no carga: se quita y queda el degradado de color
+function sinFoto(evento) {
+  var imagen = evento.target;
+  if (imagen.dataset.respaldo) {
+    var respaldo = imagen.dataset.respaldo;
+    imagen.dataset.respaldo = '';
+    imagen.src = respaldo;
+  } else {
+    imagen.remove();
+  }
+}
+
+// ----- tabla comparativa -----
+var filas = ['Vuelos', 'Hospedaje', 'Transporte clave', 'Experiencias'];
+var html = '<thead><tr><th>Indicador</th>';
+planes.forEach(function (p) {
+  html += '<th class="' + p.clase + '">' + p.etiqueta + ' · ' + dinero(p.total) + '</th>';
+});
+html += '</tr></thead><tbody>';
+filas.forEach(function (nombre, n) {
+  html += '<tr><th>' + nombre + '</th>';
+  planes.forEach(function (p) { html += '<td>' + p.comparativo[n] + '</td>'; });
+  html += '</tr>';
+});
+html += '</tbody>';
+document.getElementById('tabla-comparativa').innerHTML = html;
+
+// ----- tarjetas -----
+var rejilla = '';
+planes.forEach(function (p, n) {
+  rejilla += '<article class="card ' + p.clase + '" tabindex="0" data-n="' + n + '">' +
+    '<div class="foto"><img ' + srcFoto(p, 0) + ' alt="' + p.fotos[0][1] + '" onerror="sinFoto(event)"></div>' +
+    '<div class="info">' +
+      '<span class="etiqueta">' + p.etiqueta + '</span>' +
+      '<h3>' + p.nombre + '</h3>' +
+      '<div class="ruta">' + p.ruta + '</div>' +
+      '<div class="ruta">✈ ' + p.vuelo.aerolinea + ' · ' + p.vuelo.escalas.split(' · ')[0] + '</div>' +
+      '<div class="precio">' + dinero(p.total) + ' <small>MXN</small></div>' +
+      '<div class="por-persona">Familia de ' + PERSONAS + ' · ≈ ' + dinero(p.total / PERSONAS) + ' por persona</div>' +
+      '<span class="ver-mas">Ver detalle ›</span>' +
+    '</div></article>';
+});
+document.getElementById('rejilla').innerHTML = rejilla;
+
+// ----- filosofía -----
+var fil = '';
+planes.forEach(function (p) {
+  fil += '<div class="' + p.clase + '"><small>' + p.etiqueta + '</small><h3>' + p.filosofia[0] + '</h3><p>' + p.filosofia[1] + '</p></div>';
+});
+document.getElementById('filosofia').innerHTML = fil;
+
+// ----- ventana (modal) -----
+var ventana = document.getElementById('ventana');
+var planActual = null;
+var fotoActual = 0;
+
+function abrir(n) {
+  planActual = planes[n];
+  var p = planActual;
+  ventana.className = p.clase;
+
+  var miniaturas = '';
+  p.fotos.forEach(function (f, j) {
+    miniaturas += '<button aria-label="' + f[1] + '"><img ' + srcFoto(p, j) + ' alt="" loading="lazy" onerror="sinFoto(event)"></button>';
+  });
+
+  ventana.innerHTML =
+    '<button class="cerrar" aria-label="Cerrar">×</button>' +
+    '<div class="modal-grid">' +
+      '<div><div class="escenario"></div><div class="miniaturas">' + miniaturas + '</div></div>' +
+      '<div class="detalle">' +
+        '<span class="etiqueta">' + p.etiqueta + '</span>' +
+        '<h2>' + p.nombre + '</h2>' +
+        '<p class="justif">' + p.justificacion + '</p>' +
+        '<div class="precio"><span>$0</span> <small>MXN · ' + PERSONAS + ' personas</small></div>' +
+        '<div class="por-persona">≈ ' + dinero(p.total / PERSONAS) + ' por persona</div>' +
+        '<div class="pestanas"><button class="activa">Inversión</button><button>Vuelo</button><button>Itinerario</button></div>' +
+        '<div id="contenido"></div>' +
+      '</div>' +
+    '</div>';
+
+  ventana.showModal();
+  mostrarFoto(0);
+  mostrarInversion();
+  contarPrecio(p.total);
+}
+
+function mostrarFoto(n) {
+  var total = planActual.fotos.length;
+  fotoActual = (n + total) % total;   // para que dé la vuelta
+  var f = planActual.fotos[fotoActual];
+  ventana.querySelector('.escenario').innerHTML =
+    '<img ' + srcFoto(planActual, fotoActual) + ' alt="' + f[1] + '" onerror="sinFoto(event)">' +
+    '<div class="pie-foto">' + f[1] + '</div>' +
+    '<button class="flecha anterior" aria-label="Anterior">‹</button>' +
+    '<button class="flecha siguiente" aria-label="Siguiente">›</button>';
+  var botones = ventana.querySelectorAll('.miniaturas button');
+  for (var i = 0; i < botones.length; i++) {
+    botones[i].classList.toggle('activa', i == fotoActual);
+  }
+}
+
+// el precio sube desde cero hasta el total
+function contarPrecio(meta) {
+  var inicio = performance.now();
+  function paso(ahora) {
+    var avance = Math.min((ahora - inicio) / 1100, 1);
+    var valor = meta * (1 - Math.pow(1 - avance, 3));
+    var el = ventana.querySelector('.precio span');
+    if (el) el.textContent = dinero(valor);
+    if (avance < 1) requestAnimationFrame(paso);
+  }
+  requestAnimationFrame(paso);
+}
+
+function mostrarInversion() {
+  var p = planActual;
+  var t1 = '<table class="tabla"><tr><th>Concepto</th><th>Descripción</th><th class="num">Monto</th></tr>';
+  p.antes.forEach(function (f) {
+    t1 += '<tr><td><b>' + f[0] + '</b></td><td>' + f[1] + '</td><td class="num">' + dinero(f[2]) + '</td></tr>';
+  });
+  t1 += '<tr class="total"><td colspan="2">Subtotal pre-operativo</td><td class="num">' + dinero(p.totalAntes) + '</td></tr></table>';
+
+  var t2 = '<table class="tabla"><tr><th>Sede / días</th><th class="num">Comida</th><th class="num">Transp.</th><th class="num">Extras</th><th class="num">Total</th></tr>';
+  var a = 0, b = 0, c = 0;
+  p.durante.forEach(function (f) {
+    a += f[1]; b += f[2]; c += f[3];
+    t2 += '<tr><td>' + f[0] + '</td><td class="num">' + dinero(f[1]) + '</td><td class="num">' + dinero(f[2]) + '</td><td class="num">' + dinero(f[3]) + '</td><td class="num">' + dinero(f[1] + f[2] + f[3]) + '</td></tr>';
+  });
+  t2 += '<tr class="total"><td>Total operativo</td><td class="num">' + dinero(a) + '</td><td class="num">' + dinero(b) + '</td><td class="num">' + dinero(c) + '</td><td class="num">' + dinero(p.totalDurante) + '</td></tr></table>';
+
+  document.getElementById('contenido').innerHTML =
+    '<h4>Fase 1 · Antes del viaje</h4>' + t1 +
+    '<h4>Fase 2 · Efectivo durante el viaje</h4>' + t2;
+}
+
+function boleto(v, titulo) {
+  return '<div class="boleto">' +
+    '<div class="boleto-arriba"><b>' + titulo + ' · ' + v.aerolinea + '</b><span>' + v.operado + '</span></div>' +
+    '<div class="boleto-ruta">' +
+      '<div><strong>' + v.salida + '</strong><span>' + v.origen + '</span></div>' +
+      '<div class="boleto-medio"><small>' + v.duracion + '</small><hr><small>' + v.escalas + '</small></div>' +
+      '<div><strong>' + v.llegada + '<sup>' + v.mas + '</sup></strong><span>' + v.destino + '</span></div>' +
+    '</div></div>';
+}
+
+function mostrarVuelo() {
+  var v = planActual.vuelo;
+  document.getElementById('contenido').innerHTML =
+    boleto(v, 'Ida') + boleto(v.regreso, 'Regreso') +
+    '<div class="total-vuelo">' +
+      '<div><small>Viaje redondo por persona</small><b>' + dinero(v.porPersona) + '</b></div>' +
+      '<div><small>Total ' + PERSONAS + ' personas</small><b>' + dinero(v.total) + '</b></div>' +
+    '</div>';
+}
+
+function mostrarItinerario() {
+  var texto = '<div class="lista-dias">';
+  planActual.dias.forEach(function (d, n) {
+    texto += '<div class="dia"><i>' + (n + 1) + '</i><div><b>' + d[0] + '</b><span>' + d[1] + '</span></div></div>';
+  });
+  document.getElementById('contenido').innerHTML = texto + '</div>';
+}
+
+// ---------------------------------------------------------
+// EVENTOS
+// ---------------------------------------------------------
+document.querySelectorAll('.card').forEach(function (card) {
+  card.addEventListener('click', function () { abrir(card.dataset.n); });
+  card.addEventListener('keydown', function (e) {
+    if (e.key == 'Enter') abrir(card.dataset.n);
+  });
+});
+
+ventana.addEventListener('click', function (e) {
+  var x = e.target;
+  if (x == ventana || x.closest('.cerrar')) { ventana.close(); return; }
+  if (x.closest('.anterior')) { mostrarFoto(fotoActual - 1); return; }
+  if (x.closest('.siguiente')) { mostrarFoto(fotoActual + 1); return; }
+
+  var mini = x.closest('.miniaturas button');
+  if (mini) {
+    var lista = Array.prototype.slice.call(mini.parentNode.children);
+    mostrarFoto(lista.indexOf(mini));
+    return;
+  }
+
+  var pestana = x.closest('.pestanas button');
+  if (pestana) {
+    var todas = ventana.querySelectorAll('.pestanas button');
+    todas.forEach(function (b) { b.classList.remove('activa'); });
+    pestana.classList.add('activa');
+    if (pestana.textContent == 'Itinerario') mostrarItinerario();
+    else if (pestana.textContent == 'Vuelo') mostrarVuelo();
+    else mostrarInversion();
+  }
+});
+
+// flechas del teclado para la galería
+ventana.addEventListener('keydown', function (e) {
+  if (e.key == 'ArrowRight') mostrarFoto(fotoActual + 1);
+  if (e.key == 'ArrowLeft') mostrarFoto(fotoActual - 1);
+});
+
+// consejos antes de viajar
+var consejos = [
+  ['🛂', 'Visa', 'Mexicanos: sin visa hasta 90 días'],
+  ['📲', 'Trámite', 'Visit Japan Web, recomendado'],
+  ['🙇', 'Propinas', 'No se deja propina'],
+  ['🔌', 'Enchufe', 'Tipo A'],
+  ['💳', 'Tarjeta IC', '¥500–1,500 al día'],
+  ['🚄', 'Shinkansen', 'Tokio–Kioto: ¥13,000–14,500'],
+  ['🎫', 'JR Pass', '14 días: ¥80,000 (≈ $8,640)'],
+  ['🍁', 'Noviembre', 'Hojas rojas (momiji)']
+];
+var textoConsejos = '';
+consejos.forEach(function (c) {
+  textoConsejos += '<div class="tip"><span>' + c[0] + '</span><b>' + c[1] + '</b><p>' + c[2] + '</p></div>';
+});
+document.getElementById('tips').innerHTML = textoConsejos;
+
+// pétalos de sakura cayendo en el inicio
+for (var q = 0; q < 14; q++) {
+  var petalo = document.createElement('i');
+  petalo.className = 'petalo';
+  petalo.style.left = (Math.random() * 100) + '%';
+  petalo.style.animationDuration = (9 + Math.random() * 9) + 's';
+  petalo.style.animationDelay = (-Math.random() * 14) + 's';
+  document.querySelector('.hero').appendChild(petalo);
+}
+</script>
+</body>
+</html>
